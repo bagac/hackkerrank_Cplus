@@ -26,13 +26,13 @@
 #include <algorithm>
 using namespace std;
 
-long long max_number = 0, min_number = 1e+18;
+long long max_number = 0, min_number = 1e18;
 void check_min_max(long long n){
     if ( n == 0) return;
     else {
         long long tmp = n % 10;
         if(tmp >= max_number) max_number = tmp;
-        else if ( tmp <= min_number) min_number = tmp;
+        if ( tmp <= min_number) min_number = tmp;
         check_min_max(n / 10);
     }
 }

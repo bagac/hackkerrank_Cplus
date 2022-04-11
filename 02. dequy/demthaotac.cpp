@@ -41,21 +41,18 @@ int thaotac( int n, int cnt){
     return min({count_tt_c1, count_tt_c2, count_tt_c3});
 }
 
-int rec(int n, int cnt){
-    if(n == 1) return cnt;
-    int c1, c2 = 1e9 + 1, c3 = 1e9 + 1;
-    c1 = rec(n - 1, cnt + 1);
-    if(n % 2 == 0) c2 = rec(n / 2, cnt + 1);
-    if(n % 3 == 0) c3 = rec(n / 3, cnt + 1);
-    cout <<   c1 << " || " << c2 << " || " << c3 << endl;
-    return min({c1, c2, c3});
+int thaotac_01(int n){
+    if( n == 1) return 0;
+    long long c1 = 1e9, c2 = 1e9, c3 = 1e9; // lấy giá trị so sánh để tìm min của bước tính
+    if( n % 2 == 0) c1 = 1 + thaotac_01( n/2 );
+    if( n% 3 == 0) c2 = 1 + thaotac_01( n/3 );
+    if( n > 1) c3 = 1 + thaotac_01( n -1 );
+    return min ( c1, min (c2,c3));
 }
-
 int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */  
     int n;
     cin >> n;
-    // cout << rec(n, 0);
-    cout << thaotac(n, 0) << endl;
+    cout << thaotac_01(n) << endl;
     return 0;
 }
