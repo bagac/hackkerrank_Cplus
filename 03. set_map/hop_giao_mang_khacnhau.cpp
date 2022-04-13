@@ -35,33 +35,23 @@ int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
     long long n, m;
     cin >> n >> m;
-    multiset<long long> n_set;
-    set<long long> m_set;
     set<long long> hop_set;
-    set<long long> giao_set;
-    multiset<long long> hop_giao_set;
-    for ( int i = 0; i < (n+m); i++){
-        if( i < n){
-            long long x; cin >> x;
-            n_set.insert(x);
-        }
-        // hop_set = n_set;
-        if( i == n ){
-            hop_giao_set = n_set;
-            hop_giao_set.insert(10101);
-        }
-        if( i > n && i <= (n+m)){
-            long long y; cin >> y;
-            m_set.insert(y);
-            hop_giao_set.insert(y);
-            auto it = n_set.find(y);
-            if(it != n_set.end()) giao_set.insert(y);
-
-        }
+    vector <long long> giao;
+    for( int i = 0; i < (n); i++){
+        int x; cin >> x;
+        hop_set.insert(x);
     }
-    for (auto size = hop_giao_set.begin(); size != hop_giao_set.end(); size++){
-        if(*size == 10101) cout << "\n";
-        else cout << *size << " ";
+    for( int i = 0; i < (m); i++){
+        int y; cin >> y;
+        if(hop_set.count(y)) giao.push_back(y);
+        hop_set.insert(y);
+    }
+    for(auto it = hop_set.begin(); it != hop_set.end(); ++it){
+        cout << *it << " ";
+    }
+    cout << endl;
+    for( int i = 0; i < giao.size(); i++){
+        cout << giao[i] << " ";
     }
     return 0;
 }
