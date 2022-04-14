@@ -20,29 +20,28 @@
 
 // 1
 
-#include <bits/stdc++.h>
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
 #include <algorithm>
-#include <map>
 using namespace std;
-using ll = long long;
 
-bool cmp(ll a, ll b){
-    if( a != b ) return a < b;
-    else return a;
-}
-int main(){
-    long long n; cin >> n;
-    vector <ll> a;
-    for( long long i = 0; i < n; i++){
-        ll x; cin >> x;
-        a.push_back(x);
+
+int main() {
+    /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
+    int n; cin >> n;
+    int a[n];
+    for( int i = 0; i < n; i ++){
+        cin >> a[i];
     }
-    sort(begin(a), end(a), cmp);
-    int min = 1e9;
-    for( auto i = 0; i < a.size() - 1; i++){
-        ll tmp = a[i+1] - a[i];
-        if( tmp < min) min = tmp;
+    int min = 1e9+1;
+    sort(a, a+n);
+    for( int ii = 0; ii < n - 1; ii++)
+    {
+        if(a[ii+1] - a[ii] < min) min = a[ii+1] - a[ii];
     }
-    cout << min;
+    if(n < 2) cout << 0;
+    else cout << min;
     return 0;
 }
