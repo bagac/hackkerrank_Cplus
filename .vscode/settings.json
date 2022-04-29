@@ -18,6 +18,10 @@
         "chrono": "cpp",
         "random": "cpp",
         "limits": "cpp",
-        "iosfwd": "cpp"
+        "iosfwd": "cpp",
+        "cmath": "cpp",
+        "complex": "cpp",
+        "typeindex": "cpp",
+        "typeinfo": "cpp"
     }
 }

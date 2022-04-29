@@ -17,8 +17,13 @@ int main(){
     map<string, int> mp;
     while(ss >> word){
         ans1.insert(word);
-        mp[word] == 
+        string tmp = word;
+        mp[word] = tmp.size();
     }
-    for(auto x:ans1) cout << x << " ";
+   for(auto x:mp) cout << x.first << " " << x.second << endl; 
+   for( int i = 0; i < ans1.size(); i++){
+       ans2.first = an
+   }
+    // for(auto x:ans1) cout << x << " ";
     return 0;
 }
