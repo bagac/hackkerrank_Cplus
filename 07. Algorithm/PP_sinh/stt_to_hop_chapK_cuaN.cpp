@@ -54,12 +54,12 @@ int main() {
     while( ok ){
         int check = 0;
         for( int i = 1; i <= k; i++){
-            // cout << a[i];
+            cout << a[i];
             if(a[i] == b[i]) check++;
         }
         cnt++;
         // cout << " cnt = " << cnt << " check = " << check;
-        // cout << endl;
+        cout << endl;
         if( check == k) pos = cnt;
         sinh();
     }
