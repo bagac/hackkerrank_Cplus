@@ -30,6 +30,12 @@ int main(){
         cin >> *(array+i);
     }    
     for( auto x:array) cout << x << " ";
-    
+    // cap phat dong
+
+    int *array_02 = new int[100000000];
+    for(int ii = 0; ii < 5; ii++){
+        cin >> array_02[ii];
+    }
+    delete []array_02;
     return 0;
 }
