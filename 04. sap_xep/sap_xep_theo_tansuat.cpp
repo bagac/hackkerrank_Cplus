@@ -21,14 +21,6 @@ int main() {
         int x; cin >> x;
         mp[x]++;
         input.push_back(x);
-        // if( i == 0) input.push_back({x,i});
-        // else{
-        //     for(auto ii:input){
-        //         if(x != ii.first){
-        //             input.push_back({x,i});
-        //         } 
-        //     }
-        // }
     }
     vector<pair<int, pair<int,int>>> vt_cmp02;
     for( int i = 0; i < n; i++){
