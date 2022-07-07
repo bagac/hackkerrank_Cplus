@@ -25,10 +25,17 @@ int fibo(int n){
     else if (n == 2) return 1;
     else return fibo(n-1) + fibo(n-2);
 }
+
+int F[1000];
 int main() {
     /* Enter your code here. Read input from STDIN. Print output to STDOUT */   
     int n;
     cin >> n;
-    cout << fibo(n);
+    F[0] = 0; F[1] = 1;
+    for( int i = 2; i < n; i++){
+        F[i] = F[i - 1] + F[i - 2];
+    }
+    for( int i = 0; i < n; i++ ) cout << F[i] << endl;
+    // cout << fibo(n);
     return 0;
 }

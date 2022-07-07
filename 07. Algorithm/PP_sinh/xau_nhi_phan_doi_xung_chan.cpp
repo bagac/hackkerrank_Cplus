@@ -2,6 +2,7 @@
 #include <iomanip>
 using namespace std;
 
+set<string> vt;
 void sinh(int a[], int n, int &ok)
 {
     int i = n - 1;
@@ -17,7 +18,7 @@ void sinh(int a[], int n, int &ok)
     else
         ok = 0;
 }
-int ktmang(int a[100], int n)
+int ktmang(int a[], int n)
 {
     int i = 0;
     int j = n - 1;
@@ -30,16 +31,28 @@ int ktmang(int a[100], int n)
     }
     return 1;
 }
-
+string reverse_set(string str)
+{
+    string tmp = "";
+    for (int i = str.length() - 1; i >= 0; i--)
+        tmp += str[i];
+    return tmp;
+}
 void sinhlientuc(int a[], int n, int ok, int kq[1000][100], int &demKq)
 {
     while (ok)
     {
         if (ktmang(a, n))
         {
-            for (int i = 0; i < n; i++)
-                kq[demKq][i] = a[i];
+            string tmp = "";
+            for (int i = 0; i < (n); i++)
+                {
+                    kq[demKq][i] = a[i];
+                    tmp += a[i] + '0'; 
+                }
+            vt.insert(tmp);
             demKq++;
+            
         }
         sinh(a, n, ok);
     }
@@ -62,10 +75,14 @@ int main()
     for (int i = 2; i <= n; i = i + 2)
     {
         int ok = 1;
-        int a[100] = {};
+        int a[n] = {};
         int kq[1000][100];
         int demKq = 0;
         sinhlientuc(a, i, ok, kq, demKq);
-        inKetqua(kq, demKq, i);
+        // inKetqua(kq, demKq, i);
+        // cout << endl;
+    }
+    for( auto x : vt) {
+        cout << x  << endl;
     }
 }
